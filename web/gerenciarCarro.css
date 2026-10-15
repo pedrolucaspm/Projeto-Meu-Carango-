@@ -1,0 +1,132 @@
+
+* {  
+  margin: 0;  
+  padding: 0;  
+  box-sizing: border-box;  
+}  
+  
+body {  
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  
+  background: black;   
+  color: #f0f0f0; 
+  padding: 40px;  
+}  
+  
+
+h2 {  
+  text-align: center;  
+  color: red;  
+  margin-bottom: 30px;  
+  font-size: 32px;  
+  letter-spacing: 1px;  
+}  
+  
+
+table {  
+  width: 100%;  
+  border-collapse: collapse;  
+  margin-bottom: 40px;  
+  background-color: #111;  
+  border-radius: 10px;  
+  overflow: hidden;  
+  box-shadow: 0 0 15px rgba(255,255,255,0.05);  
+}  
+  
+th, td {  
+  padding: 14px 16px;  
+  text-align: center;  
+  border-bottom: 1px solid #333;  
+  color: #f8f8f8;  
+}  
+  
+th {  
+  background-color: #b71c1c; 
+  color: white;  
+  font-size: 16px;  
+  text-transform: uppercase;  
+  letter-spacing: 1px;  
+}  
+  
+tr:hover {  
+  background-color: #1a0000; 
+}  
+  
+input[type="text"],  
+input[type="number"],  
+input[type="hidden"] {  
+  padding: 8px 10px;  
+  border: 1px solid #555;  
+  border-radius: 6px;  
+  width: 100%;  
+  font-size: 14px;  
+  background-color: #222; 
+  color: #fff;  
+  transition: 0.3s;  
+}  
+  
+input:focus {  
+  border-color: #d32f2f;  
+  outline: none;  
+  background-color: #111;  
+}  
+  
+ 
+button {  
+  padding: 8px 14px;  
+  border: none;  
+  border-radius: 6px;  
+  background-color: #d32f2f;  
+  color: white;  
+  font-weight: bold;  
+  cursor: pointer;  
+  transition: background 0.3s ease;  
+  margin: 2px;  
+}  
+  
+button:hover {  
+  background-color: #b71c1c;  
+}  
+  
+button[type="submit"][value="excluir"] {  
+  background-color: #cc0000;  
+}  
+  
+button[type="submit"][value="excluir"]:hover {  
+  background-color: #990000;  
+}  
+  
+ 
+form {  
+  display: flex;  
+  flex-wrap: wrap;  
+  gap: 10px;  
+  align-items: center;  
+  justify-content: center;  
+  margin-bottom: 40px;  
+  background-color: #111;  
+  padding: 20px;  
+  border-radius: 10px;  
+  box-shadow: 0 0 12px rgba(255,255,255,0.03);  
+}  
+  
+form input {  
+  width: 180px;  
+}  
+  
+form button {  
+  width: auto;  
+  padding: 10px 20px;  
+}  
+  
+  
+a {  
+  display: inline-block;  
+  text-decoration: none;  
+  color: #ff6666; 
+  font-weight: bold;  
+  margin-top: 10px;  
+}  
+  
+a:hover {  
+  text-decoration: underline;  
+  color: #ff3333;  

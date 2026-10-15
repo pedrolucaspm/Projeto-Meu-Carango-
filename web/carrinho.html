@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Carrinho de Compras</title>
+  <link rel="stylesheet" href="carrinho.css" />
+</head>
+<body>
+
+  <h1>Seu Carrinho</h1>
+
+  <div id="carrinho"></div>
+  <p id="carrinho-vazio" style="display:none;">Seu carrinho está vazio.</p>
+  <p id="total" style="display:none;">Total: R$ 0,00</p>
+
+  <form id="formCarrinho" method="post" action="carrinho.jsp">
+    <input type="hidden" name="carrinhoJSON" id="carrinhoJSON" />
+    <button type="submit" id="finalizar" style="display:none;">Finalizar Compra</button>
+  </form>
+
+  <script>
+    const form = document.getElementById('formCarrinho');
+    const carrinhoJSONInput = document.getElementById('carrinhoJSON');
+    const btnFinalizar = document.getElementById('finalizar');
+    const carrinhoContainer = document.getElementById('carrinho');
+    const carrinhoVazioMsg = document.getElementById('carrinho-vazio');
+    const totalDisplay = document.getElementById('total');
+
+    function atualizarFinalizar(carrinho) {
+      if (carrinho.length === 0) {
+        btnFinalizar.style.display = 'none';
+        carrinhoVazioMsg.style.display = 'block';
+        totalDisplay.style.display = 'none';
+      } else {
+        btnFinalizar.style.display = 'inline-block';
+        carrinhoVazioMsg.style.display = 'none';
+        totalDisplay.style.display = 'block';
+      }
+    }
+
+    function calcularTotal(carrinho) {
+      return carrinho.reduce((acc, item) => acc + item.preco, 0);
+    }
+
+    function atualizarCarrinho() {
+      let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+      carrinhoContainer.innerHTML = '';
+
+      if (carrinho.length === 0) {
+        carrinhoVazioMsg.style.display = 'block';
+        btnFinalizar.style.display = 'none';
+        totalDisplay.style.display = 'none';
+        return;
+      }
+
+      carrinhoVazioMsg.style.display = 'none';
+      btnFinalizar.style.display = 'inline-block';
+
+      carrinho.forEach((item, index) => {
+        const div = document.createElement('div');
+        div.className = 'carrinho-item';
+
+        let imgSrc = item.imagem && item.imagem.trim() !== '' ? item.imagem : 'imagens/default-car.png';
+
+        div.innerHTML = `
+          <img src="${imgSrc}" alt="${item.nome}" />
+          <div class="carrinho-info">
+            <h4>${item.nome}</h4>
+            <p>R$ ${item.preco.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</p>
+          </div>
+          <button aria-label="Remover ${item.nome} do carrinho" class="remover-btn" onclick="removerItem(${index})">Remover</button>
+        `;
+
+        carrinhoContainer.appendChild(div);
+      });
+
+      const total = calcularTotal(carrinho);
+      totalDisplay.textContent = `Total: R$ ${total.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`;
+
+      atualizarFinalizar(carrinho);
+    }
+
+    function removerItem(index) {
+      let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+      carrinho.splice(index, 1);
+      localStorage.setItem('carrinho', JSON.stringify(carrinho));
+      atualizarCarrinho();
+
+      alert('Item removido do carrinho!');
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+
+      if (carrinho.length === 0) {
+        alert('Seu carrinho está vazio!');
+        return;
+      }
+
+      carrinhoJSONInput.value = JSON.stringify(carrinho);
+      form.submit();
+    });
+
+    window.onload = atualizarCarrinho;
+    window.removerItem = removerItem;
+  </script>
+<img align="right" src="carrinho.png" width="400" height="300">
+</body>
+</html>

@@ -1,0 +1,98 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-image: url(fundocriar.jpg);
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.criar-container {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 40px;
+  border-radius: 15px;
+  max-width: 500px;
+  width: 100%;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+}
+
+
+.criar-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-weight: 400;
+  font-size: 26px;
+  color: #FFD700;
+}
+
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+  background-color: #2a2a2a;
+  color: white;
+}
+
+
+button,
+.btn-voltar,
+.btn-tentar {
+  display: inline-block;
+  padding: 14px;
+  margin: 10px 0;
+  width: 100%;
+  text-decoration: none;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.2s;
+  cursor: pointer;
+}
+
+button.btn-criar {
+  background-color: #e53935;
+  color: white;
+}
+
+button.btn-criar:hover {
+  background-color: #c62828;
+  transform: scale(1.02);
+}
+
+
+a.btn-login {
+  color: yellow;
+  text-align: center;
+  display: inline-block;
+}
+
+a.btn-login:hover {
+  background-color: #e6c200;
+  transform: scale(1.02);
+}

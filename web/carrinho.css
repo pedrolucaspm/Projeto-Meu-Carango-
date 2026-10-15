@@ -1,0 +1,107 @@
+
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  background: black;
+  margin: 0;
+  padding: 20px;
+  color: red;
+}
+
+#carrinho {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #e6e6e6;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+
+.carrinho-item {
+  display: flex;
+  align-items: center;
+  padding: 15px 10px;
+  border-bottom: 1px solid #eee;
+  gap: 20px;
+}
+
+.carrinho-item:last-child {
+  border-bottom: none;
+}
+
+.carrinho-item img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  flex-shrink: 0;
+}
+
+.carrinho-info {
+  flex-grow: 1;
+}
+
+.carrinho-info h4 {
+  margin: 0 0 6px 0;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #111;
+}
+
+.carrinho-info p {
+  margin: 0;
+  font-size: 1rem;
+  color: #666;
+  font-weight: 600;
+}
+
+.carrinho-item button {
+  background: transparent;
+  border: 2px solid #ff4d4f;
+  color: #ff4d4f;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 80px;
+}
+
+.carrinho-item button:hover {
+  background: #ff4d4f;
+  color: white;
+}
+
+
+#finalizar {
+  background: #f0c419; 
+  color: red; 
+  border: none;
+  padding: 15px 25px;
+  border-radius: 12px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+  max-width: 320px;
+  margin: 30px auto 0 auto;
+  display: block;
+  box-shadow: 0 6px 12px rgba(240, 196, 25, 0.6);
+  transition: background-color 0.3s ease;
+}
+
+#finalizar:hover {
+  background: #d1a913; 
+  color: #222;
+}
+
+
+
+#carrinho-vazio {
+  text-align: center;
+  color: #999;
+  font-size: 1.3rem;
+  margin-top: 80px;
+  font-style: italic;
+}
